@@ -44,6 +44,9 @@ class Album extends Component {
    hoverOff (song) {
      this.setState ({hover:null});
    }
+   button (song) {
+    return (hover ? <span className="ion-play"></span> : <span className="ion-pause"></span> )
+   }
   }
   render() {
     return (
@@ -67,9 +70,7 @@ class Album extends Component {
         <tr className="song" key={index} onClick={() => this.handleSongClick(song)}>
           <td
           onMouseEnter={() => this.hoverOn()}
-          onMouseLeave={() => this.hoverOff()}
-          button (song) {
-           return (hover ? <span className="ion-play"></span> : <span className="ion-pause"></span> ) }>
+          onMouseLeave={() => this.hoverOff()}>
           </td>
           <td>{song.title}</td>
           <td>{song.duration}</td>
