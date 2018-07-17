@@ -49,7 +49,7 @@ class Album extends Component {
      this.audioElement.removeEventListener('durationchange', this.eventListeners.durationchange);
      this.audioElement.removeEventListener('volumechange', this.eventListeners.volumechange);
   };
-  ssetSong(song) {
+  setSong(song) {
     this.audioElement.src = song.audioSrc;
     this.setState({ currentSong: song });
   }
@@ -143,7 +143,6 @@ class Album extends Component {
           </td>
           <td>{song.title}</td>
           <td>{song.duration}</td>
-          <td>{this.formatTime(this.audioElement.currentTime)}</td>
         </tr>
       )
     }
