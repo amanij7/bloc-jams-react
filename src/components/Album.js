@@ -106,19 +106,16 @@ class Album extends Component {
     this.setState({ volume: newVolume});
   }
   formatTime(time) {
-    if (currentTime == 0){
-      return "-:--";
-    }
-
-    const currentTime = currentTime
     const seconds = time/60
     const minutes = time*60
-
-    console.log(formatTime(time));
+    if (time == undefined){
+      return "-:--";
+    }
+    else {
+      return time;
+    }
   }
 
-
-  }
   render() {
     return (
       <section className="album">
@@ -145,7 +142,8 @@ class Album extends Component {
           {this.button(song, index)}
           </td>
           <td>{song.title}</td>
-          <td>{this.(song.duration)}</td>
+          <td>{song.duration}</td>
+          <td>{this.formatTime(this.audioElement.currentTime)}</td>
         </tr>
       )
     }
