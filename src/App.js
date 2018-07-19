@@ -13,9 +13,9 @@ class App extends Component {
       <div className="App">
         <header>
         <nav className="nav-bar">
-         <Link to='/'>Landing</Link>
+         <Link to='/' className="link">Landing</Link>
          <span> | </span>
-         <Link to='/Library'>Library</Link>
+         <Link to='/Library' className="link">Library</Link>
         </nav>
           <h1 className="title"> Bloc Jams</h1>
         </header>

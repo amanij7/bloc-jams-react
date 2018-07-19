@@ -78,7 +78,7 @@ class Album extends Component {
        return <span className="icon ion-md-play"></span>
         }
      else {
-       return (index + 1)
+       return (index + 1 + ".")
         }
     }
     handlePrevClick() {
