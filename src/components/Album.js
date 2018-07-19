@@ -106,13 +106,13 @@ class Album extends Component {
     this.setState({ volume: newVolume});
   }
   formatTime(time) {
-    const seconds = time/60
-    const minutes = time*60
+    const minutes = Math.floor(time/60);
+    const seconds = Math.floor(time-minutes*60);
     if (time == undefined){
       return "-:--";
     }
     else {
-      return time;
+      return minutes + ":" + seconds;
     }
   }
 
@@ -136,13 +136,14 @@ class Album extends Component {
         <tbody>
         {this.state.album.songs.map((song, index) =>
         <tr className="song" key={index} onClick={() => this.handleSongClick(song)}>
-          <td
+          <td className="click"
           onMouseEnter={() => this.hoverOn(song)}
           onMouseLeave={() => this.hoverOff(song)}>
           {this.button(song, index)}
           </td>
           <td>{song.title}</td>
-          <td>{song.duration}</td>
+          <td>{this.formatTime(song.duration)}</td>
+          <td>{this.props.formatTime}</td>
         </tr>
       )
     }
